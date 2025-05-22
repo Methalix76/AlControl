@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from '@ionic/angular'; // Añade LoadingController y AlertController
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth'; // Importa Auth y su método de registro
-import { Firestore, collection, doc, setDoc } from '@angular/fire/firestore'; // Importa Firestore y sus métodos
+import { NavController, LoadingController, AlertController } from '@ionic/angular';
+import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Firestore, collection, doc, setDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-register',
@@ -17,14 +17,14 @@ export class RegisterPage {
   mail: string = '';
   pass: string = '';
   repass: string = '';
-
+  tipoUsuario: string = ''; // Nueva propiedad para el tipo de usuario
 
   constructor(
     private navCtrl: NavController,
-    private auth: Auth, // Inyecta el servicio de Autenticación
-    private firestore: Firestore, // Inyecta el servicio de Firestore
-    private loadingCtrl: LoadingController, // Para mostrar un spinner de carga
-    private alertCtrl: AlertController // Para mostrar mensajes de error/éxito
+    private auth: Auth,
+    private firestore: Firestore,
+    private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController
   ) {}
 
   goBack() {
@@ -41,8 +41,8 @@ export class RegisterPage {
     console.log('Botón Registrarse clickeado');
 
     // 1. Validaciones básicas (puedes expandirlas mucho más)
-    if (!this.nombre || !this.apellido || !this.run || !this.mail || !this.pass || !this.repass) {
-      this.showAlert('Error de Validación', 'Por favor, completa todos los campos.');
+    if (!this.nombre || !this.apellido || !this.run || !this.mail || !this.pass || !this.repass || !this.tipoUsuario) {
+      this.showAlert('Error de Validación', 'Por favor, completa todos los campos, incluyendo el tipo de usuario.');
       return;
     }
 
@@ -70,8 +70,7 @@ export class RegisterPage {
           apellido: this.apellido,
           run: this.run,
           email: this.mail,
-          // Considera si esto es necesario si el email es el usuario principal
-          // No guardes la contraseña directamente en Firestore. Solo se guarda en Firebase Auth.
+          tipoUsuario: this.tipoUsuario, // Guarda el tipo de usuario seleccionado
           createdAt: new Date().toISOString() // Opcional: marca de tiempo de creación
         });
 

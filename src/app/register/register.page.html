@@ -30,11 +30,17 @@
   
         <ion-label position="floating">Contraseña</ion-label>
         <br>
-        <ion-input  [(ngModel)]="pass" type="text" placeholder="Contraseña"></ion-input>
-
-        <ion-label position="floating">Repetir Contraseña</ion-label>
+        <ion-input  [(ngModel)]="pass" type="password" placeholder="Contraseña"></ion-input> <ion-label position="floating">Repetir Contraseña</ion-label>
         <br>
-        <ion-input  [(ngModel)]="repass" type="text" placeholder="Repetir Contraseña"></ion-input>
+        <ion-input  [(ngModel)]="repass" type="password" placeholder="Repetir Contraseña"></ion-input> <ion-item>
+          <ion-label position="floating">Tipo de Usuario</ion-label>
+          <ion-select [(ngModel)]="tipoUsuario" placeholder="Selecciona uno">
+            <ion-select-option value="paciente">Paciente</ion-select-option>
+            <ion-select-option value="cuidador">Cuidador</ion-select-option>
+            <ion-select-option value="administrador">Administrador</ion-select-option>
+          </ion-select>
+        </ion-item>
+
     </ion-item>
       
     <div>

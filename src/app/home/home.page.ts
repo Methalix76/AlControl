@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,22 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  constructor(private navCtrl: NavController, private loadingController: LoadingController) {}
 
-  constructor() {}
+  async pruebaClickLogin() {
+    console.log('Botón btnlogin clickeado');
+    const loading = await this.loadingController.create({
+      message: 'Dirigiendo a Login...',
+      duration: 300 // Duración en milisegundos
+    });
+    await loading.present();
+    setTimeout(() => {
+      this.navCtrl.navigateForward('/login');
+    }, 1000); // Asegúrate que la duración coincida con la del loading
+  }
 
+  pruebaClickRegistro() {
+    console.log('Botón btnregistro clickeado');
+    this.navCtrl.navigateForward('/register');
+  }
 }

@@ -29,6 +29,7 @@ const routes: Routes = [
     loadChildren: () => import('./bienvenida/bienvenida.module').then( m => m.BienvenidaPageModule)
   },
  
+  
 ];
 
 @NgModule({

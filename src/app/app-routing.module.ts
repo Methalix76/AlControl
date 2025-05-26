@@ -28,6 +28,14 @@ const routes: Routes = [
     path: 'bienvenida',
     loadChildren: () => import('./bienvenida/bienvenida.module').then( m => m.BienvenidaPageModule)
   },
+  {
+    path: 'ingmedicamento',
+    loadChildren: () => import('./ingmedicamento/ingmedicamento.module').then( m => m.IngmedicamentoPageModule)
+  },
+  {
+    path: 'registromed',
+    loadChildren: () => import('./registromed/registromed.module').then( m => m.RegistromedPageModule)
+  },
  
   
 ];

@@ -22,13 +22,13 @@ export class LoginPage {
   async pruebaClickValidacion() {
     console.log('Botón btnValidacion clickeado');
 
-    // 1. Validaciones básicas
+    // 1. Validaciones
     if (!this.mail || !this.contrasena) {
       this.showAlert('Error de Validación', 'Por favor, ingresa tu correo y contraseña.');
       return;
     }
 
-    // 2. Mostrar un indicador de carga
+    // 2. muestra indicador de carga
     const loading = await this.loadingController.create({
       message: 'Iniciando sesión...',
       // duration: 750 // Quita la duración fija, el spinner se cerrará al éxito o error
@@ -36,19 +36,17 @@ export class LoginPage {
     await loading.present();
 
     try {
-      // 3. Intentar iniciar sesión con Firebase Authentication
+      // 3. iniciar sesión con Firebase 
       const userCredential = await signInWithEmailAndPassword(this.auth, this.mail, this.contrasena);
       const user = userCredential.user;
 
       await loading.dismiss(); // Ocultar el spinner
 
       if (user) {
-        // 4. Si la autenticación es exitosa, navegar a la página de bienvenida
+        // 4. Si la autenticación es exitosa, pasa a la sigueinte pagina
         this.showAlert('Inicio de Sesión Exitoso', `¡Bienvenido, ${user.email}!`);
-        this.navCtrl.navigateForward('/bienvenida'); // <-- ¡Aquí se dirige a bienvenida!
+        this.navCtrl.navigateForward('/bienvenida'); 
       } else {
-        // Esto rara vez ocurre si signInWithEmailAndPassword no lanza un error,
-        // pero es una buena práctica tener un fallback.
         throw new Error('No se pudo obtener el usuario después del inicio de sesión.');
       }
 

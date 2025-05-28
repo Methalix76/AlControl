@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Firestore, doc, getDoc } from '@angular/fire/firestore';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular'; // Agregamos ToastController
 
 @Component({
   selector: 'app-bienvenida',
   templateUrl: './bienvenida.page.html',
   styleUrls: ['./bienvenida.page.scss'],
-  standalone: false, 
+  standalone: false,
 })
 export class BienvenidaPage implements OnInit {
-  nombreCompleto: string = 'Usuario'; // Esta variable se actualizará con el nombre y apellido
+  nombreCompleto: string = 'Usuario';
+  userType: string = ''; // Para almacenar el tipo de usuario
 
   constructor(
     private auth: Auth,
     private firestore: Firestore,
     private loadingController: LoadingController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private toastController: ToastController // Inyectamos ToastController
   ) {}
 
   async ngOnInit() {
@@ -33,31 +35,70 @@ export class BienvenidaPage implements OnInit {
       const user = this.auth.currentUser;
 
       if (user) {
-        // Obtenemos una referencia al documento del usuario en la colección 'users'
         const userDocRef = doc(this.firestore, `users/${user.uid}`);
-        // Obtenemos la 'snapshot' del documento
         const userDocSnap = await getDoc(userDocRef);
 
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data();
           this.nombreCompleto = `${userData['nombre']} ${userData['apellido']}`;
+          this.userType = userData['tipoUsuario']; // Obtenemos el tipo de usuario
+
+          // Validación del tipo de usuario
+          if (this.userType === 'administrador') {
+            await this.presentToast('Acceso denegado: Los administradores no pueden ingresar aquí.', 'danger');
+            await this.auth.signOut(); // Cerrar sesión automáticamente
+            this.navCtrl.navigateRoot('/login');
+          }
+
         } else {
           console.warn('No se encontraron datos adicionales para el usuario en Firestore.');
-          this.nombreCompleto = 'Usuario (datos no encontrados)'; // Si no se encuentran datos
+          this.nombreCompleto = 'Usuario (datos no encontrados)';
+          await this.presentToast('No se encontraron datos de usuario. Por favor, intente de nuevo.', 'warning');
+          await this.auth.signOut();
+          this.navCtrl.navigateRoot('/login');
         }
       } else {
         console.log('No hay usuario logueado, redirigiendo a /login');
-        this.navCtrl.navigateRoot('/login'); // Redirigir si no hay sesión activa
+        this.navCtrl.navigateRoot('/login');
       }
     } catch (error) {
       console.error('Error al cargar los datos del usuario:', error);
-      this.nombreCompleto = 'Error al cargar datos'; // Mensaje de error
+      this.nombreCompleto = 'Error al cargar datos';
+      await this.presentToast('Ocurrió un error al cargar sus datos. Por favor, intente de nuevo.', 'danger');
+      await this.auth.signOut(); // Considerar cerrar sesión en caso de error grave
+      this.navCtrl.navigateRoot('/login');
     } finally {
-      await loading.dismiss(); // Aseguramos que el spinner se oculte
+      await loading.dismiss();
     }
   }
 
-  // Ejemplo de cómo podrías tener un botón para cerrar sesión
+  async presentToast(message: string, color: string = 'primary') {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+      color: color,
+      position: 'top'
+    });
+    toast.present();
+  }
+
+  // Navegación para "Ver Medicamento" (aún pendiente la vista)
+  async goToVerMedicamento() {
+    await this.presentToast('Funcionalidad "Ver Medicamento" en desarrollo.', 'secondary');
+    // En el futuro: this.navCtrl.navigateForward('/ver-medicamento');
+  }
+
+  // Navegación para "Agregar Medicamento"
+  goToAgregarMedicamento() {
+    this.navCtrl.navigateForward('/ingmedicamento'); // Asumiendo que la ruta es '/ingmedicamento'
+  }
+
+  // Navegación para "Consulta historial" (futuro)
+  async goToConsultaHistorial() {
+    await this.presentToast('Funcionalidad "Consulta Historial" en desarrollo.', 'secondary');
+    // En el futuro: this.navCtrl.navigateForward('/historial');
+  }
+
   async logout() {
     const loading = await this.loadingController.create({
       message: 'Cerrando sesión...',
@@ -66,6 +107,6 @@ export class BienvenidaPage implements OnInit {
     await loading.present();
     await this.auth.signOut();
     await loading.dismiss();
-    this.navCtrl.navigateRoot('/login'); // Redirige al login después de cerrar sesión
+    this.navCtrl.navigateRoot('/login');
   }
 }

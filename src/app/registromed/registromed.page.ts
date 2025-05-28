@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-registromed',
   templateUrl: './registromed.page.html',
   styleUrls: ['./registromed.page.scss'],
+  standalone: false, 
 })
 export class RegistromedPage implements OnInit {
 

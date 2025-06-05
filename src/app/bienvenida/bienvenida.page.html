@@ -1,18 +1,35 @@
+<ion-header>
+  <ion-toolbar class="welcome-toolbar">
+      <ion-title class="ion-text-center welcome-title">¡Hola, {{ nombreCompleto }}!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <div class="ion-padding content-wrapper"> <ion-toolbar class="welcome-toolbar">
-      <ion-title class="ion-text-center welcome-title">¡Bienvenido, {{ nombreCompleto }}!</ion-title>
-    </ion-toolbar>
-
-    <ion-toolbar class="treatment-toolbar">
-      <ion-title class="ion-text-center treatment-title">TRATAMIENTO</ion-title>
-    </ion-toolbar>
-
+  <ion-title class="ion-text-center treatment-title">TRATAMIENTO</ion-title>
     <div class="button-container">
       <ion-button expand="block" class="action-button" (click)="goToVerMedicamento()">Ver Medicamento</ion-button>
       <ion-button expand="block" class="action-button" (click)="goToAgregarMedicamento()">Agregar Medicamento</ion-button>
-      <ion-button expand="block" class="action-button" (click)="goToConsultaHistorial()">Consulta Historial</ion-button>
-      <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">Cerrar Sesión</ion-button>
-    </div>
+      <!--<ion-button expand="block" class="action-button" (click)="goToConsultaHistorial()">Consulta Historial</ion-button>-->
+  
 
-  </div>
+    </div>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+<ion-footer>
+  
+    <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+      Cerrar Sesión
+    </ion-button>
+  
+</ion-footer>

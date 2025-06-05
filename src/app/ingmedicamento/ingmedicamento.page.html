@@ -1,31 +1,107 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>ingmedicamento</ion-title>
+  <ion-toolbar class="welcome-toolbar">
+     <ion-title>Ingrese Medicamento</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ingmedicamento</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content>
+  <!-- Selector de Tratamiento -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Seleccione Tratamiento</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-select placeholder="Seleccione..." interface="action-sheet">
+        <ion-select-option value="A">Tratamento A</ion-select-option>
+        <ion-select-option value="B">Tratamento B</ion-select-option>
+        <ion-select-option value="C">Tratamento C</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!-- Ingreso de Medicamento -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Ingrese Medicamento</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-select placeholder="Seleccione..." interface="action-sheet">
+        <ion-select-option value="A">Medicamento A</ion-select-option>
+        <ion-select-option value="B">Medicamento B</ion-select-option>
+        <ion-select-option value="C">Medicamento C</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!-- Prescripción -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Prescripción</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-input placeholder="Medicamento A"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Días -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Dias</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-select placeholder="Seleccione..." interface="action-sheet">
+        <ion-select-option value="A">1</ion-select-option>
+        <ion-select-option value="B">2</ion-select-option>
+        <ion-select-option value="C">3</ion-select-option>
+        <ion-select-option value="D">5</ion-select-option>
+        <ion-select-option value="E">7</ion-select-option>
+        <ion-select-option value="F">14</ion-select-option>
+        <ion-select-option value="G">30</ion-select-option>
+        <ion-select-option value="H">60</ion-select-option>
+        <ion-select-option value="I">90</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- Hora Inicio -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Hora Inicio</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-select>
+        <ion-select-option value="6360">8:30 a.m.</ion-select-option>
+        <!-- Otras opciones de hora -->
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!-- Cantidad de veces al día -->
+    <ion-list>
+    <ion-list-header>
+      <ion-label>Repeticiones por Dias</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-select placeholder="Seleccione..." interface="action-sheet">
+        <ion-select-option value="A">1</ion-select-option>
+        <ion-select-option value="B">2</ion-select-option>
+        <ion-select-option value="C">3</ion-select-option>
+        <ion-select-option value="D">4</ion-select-option>
+        <ion-select-option value="E">otra</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
-
-
-                        <!--muestra de codigo-->
-  <ion-content [fullscreen]="true" class="ion-padding">
-    <h1>Scroll the content .</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed tellus nec mauris auctor dignissim fermentum in
-      que, malesuada mauris finibus, elementum massa. Proin lacinia mauris quis ligula blandit
-      Aliquam ipsum massa, porttitor at mollis ut, pretium sit amet mi. In neque mauris, placerat et
-      neque vel, tempor interdum dolor. Suspendisse gravida malesuada tellus, vel dapibus nisl dignissim vel. Cras ut
-      nulla sit amet erat malesuada euismod vel a nulla.
-    </p>
-    
-  </ion-content>
-
+ <ion-footer>
+  
+    <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+      Cerrar Sesión
+    </ion-button>
+  
+</ion-footer>
 
 

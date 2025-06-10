@@ -1,0 +1,14 @@
+  .select-container {
+    border: 1px solid #525f7a; /* Borde azul similar al color primary de Ionic */
+
+    padding: 10px; /* Espacio interno */
+    margin: 10px 0; /* Margen exterior */
+  }
+  
+  .blue-treatment::part(text) {
+    color: #3880ff; /* Color azul para los medicamentos */
+  }
+  
+  ion-select {
+    width: auto; /* Asegura que el select ocupe todo el ancho */
+  }

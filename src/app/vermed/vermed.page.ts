@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-vermed',
   templateUrl: './vermed.page.html',
@@ -10,8 +9,14 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
   standalone: false,
 })
 export class VermedPage implements OnInit {
-  
-  
+  // cambio aqui 2 - Agregadas propiedades para los datos
+  usuario: string = 'Nombre del Usuario'; // Valor por defecto
+  diagnostico: string = 'Diagnóstico del paciente';
+  medicamento: string = 'Nombre del medicamento';
+  dosis: string = 'Dosis indicada';
+  imagen: string = 'deberia caragar la imagen registrada al medicamento';
+  proxima_dosis: string = 'Hora Proxima dosis';
+  proxima_dosis_2: string = 'Hora Siguinte dosis';
   constructor(
     private auth: Auth,
     private loadingController: LoadingController,
@@ -20,7 +25,32 @@ export class VermedPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    // cambio aqui 3 - Aquí podrías cargar datos reales desde un servicio
+    // this.cargarDatosMedicamento();
   }
+
+  // cambio aqui 4 - Método de ejemplo para cargar datos (descomentar si se implementa)
+  /*
+  async cargarDatosMedicamento() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando datos...'
+    });
+    await loading.present();
+    
+    try {
+      // Aquí iría la lógica para obtener los datos reales
+      // Ejemplo: desde Firebase o una API
+      this.usuario = 'Datos reales del usuario';
+      this.diagnostico = 'Diagnóstico real';
+      this.medicamento = 'Medicamento real';
+      this.dosis = 'Dosis real';
+      await loading.dismiss();
+    } catch (error) {
+      await loading.dismiss();
+      this.presentToast('Error al cargar datos', 'danger');
+    }
+  }
+  */
 
   goBack() {
     this.navCtrl.navigateBack('/bienvenida');
@@ -53,6 +83,4 @@ export class VermedPage implements OnInit {
       console.error('Error al cerrar sesión:', error);
     }
   }
-
-  
 }

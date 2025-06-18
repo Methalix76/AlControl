@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'vermed',
     loadChildren: () => import('./vermed/vermed.module').then( m => m.VermedPageModule)
   },
+  {
+    path: 'consulthist',
+    loadChildren: () => import('./consulthist/consulthist.module').then( m => m.ConsulthistPageModule)
+  },
 
  
   

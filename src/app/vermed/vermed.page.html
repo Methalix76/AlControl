@@ -9,13 +9,44 @@
   </ion-toolbar>
 </ion-header>
 
+<!--cambio aqui 1 - Agregado sección de datos del medicamento -->
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Usuario: {{usuario}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Diagnóstico: {{diagnostico}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Medicamento: {{medicamento}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dosis: {{dosis}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Imagen: {{imagen}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
 
+
+
+
+<ion-content>    
+  <ion-item>
+    <ion-label>Hora Proxima dosis: {{proxima_dosis}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Hora Proxima dosis: {{proxima_dosis_2}}</ion-label>
+  </ion-item>
+</ion-content>
+
+  
 
 <!--boton para cierre de sesion-->
 <ion-footer>  
     <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
       Cerrar Sesión
     </ion-button>  
-</ion-footer>  
-
- 
+</ion-footer>

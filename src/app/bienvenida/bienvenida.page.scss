@@ -42,13 +42,19 @@
   --background-hover: var(--ion-color-danger-shade);
 }
 
-// Estilos para pantallas más pequeñas (opcional)
-@media (max-width: 600px) {
-  .welcome-title, .treatment-title {
-    font-size: 1.3em;
-  }
-  .action-button, .logout-button {
-    height: 45px;
-    font-size: 1em;
-  }
+ion-content {
+  --background: #fff;
+}
+
+.image-container {
+  display: grid; /* Habilita CSS Grid en el contenedor */
+  place-items: center; /* Atajo para centrar tanto horizontal como verticalmente */
+  height: 100%; /* Asegura que el contenedor ocupe toda la altura disponible */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }

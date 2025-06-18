@@ -16,9 +16,8 @@ export class IngmedicamentoPage implements OnInit {
   dias: string = '';
   cantidadVeces: string = '';
   horaInicio: string = '';
-  diagnosticoSeleccionado: string = '';
 
-
+  
   constructor(
     private auth: Auth,
     private loadingController: LoadingController,
@@ -73,9 +72,9 @@ export class IngmedicamentoPage implements OnInit {
         return;
       }
       
-      // Validar tamaño de archivo (ejemplo: máximo 5MB)
+      // Validar tamaño de archivo (máximo 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        this.presentToast('La imagen es demasiado grande (máx. 5MB)', 'warning');
+        this.presentToast('Imagen es muy grande (máx. 5MB)', 'warning');
         return;
       }
 
@@ -94,7 +93,7 @@ export class IngmedicamentoPage implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-
+    
   async guardarPrescripcion() {
     // Validación de campos obligatorios
     if (!this.diagnostico || !this.medicamento || !this.dias || !this.cantidadVeces || !this.horaInicio) {

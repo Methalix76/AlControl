@@ -1,71 +1,66 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="welcome-toolbar">
+      <ion-toolbar> 
+        <ion-buttons slot="end">
+          <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+            <img src="assets/img/5469759.png">
+          </ion-button>
+        </ion-buttons> 
      <ion-title>INGRESE MEDICAMENTO</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <!-- Prescripción -->
 <ion-header>
   <br>
-  <ion-label><h1 style="text-align: center;">Prescripción</h1></ion-label>
+    <ion-label  color="danger" style="text-align: center;"><h1 >PRESCRIPCION</h1></ion-label>
   <br>
 </ion-header>
-    
-<ion-content>
+
+<ion-content style="--background: #ffffff;">
   <!-- Selector de Tratamiento -->
-<div class="select-container">
+<div>
   <ion-item>
-    <ion-select justify="space-between" label="Diagnostico" placeholder=" ">      
-      <ion-select-option value="A" class="blue-treatment">Tratamento A</ion-select-option>
-      <ion-select-option value="B" class="blue-treatment">Tratamento B</ion-select-option>
-      <ion-select-option value="C" class="blue-treatment">Tratamento C</ion-select-option>
-      <ion-select-option value="D" class="blue-treatment">Tratamento D</ion-select-option>
-      <ion-select-option value="E" class="blue-treatment">Tratamento E</ion-select-option>
-      <ion-select-option value="F" class="blue-treatment">Tratamento F</ion-select-option>
-      <ion-select-option value="G" class="blue-treatment">Tratamento G</ion-select-option>
-      <ion-select-option value="H" class="blue-treatment">Tratamento H</ion-select-option>
-      <ion-select-option value="I" class="blue-treatment">Tratamento I</ion-select-option>
+    <ion-select [(ngModel)]="diagnosticoSeleccionado" justify="space-between" label="Diagnostico" placeholder="Seleccionar"> <!--cambio aqui 1-->
+      <ion-select-option value="Tratamiento A">Tratamento A</ion-select-option>
+      <ion-select-option value="Tratamiento B">Tratamento B</ion-select-option>
+      <ion-select-option value="Tratamiento C">Tratamento C</ion-select-option>
+      <ion-select-option value="Otra">Otra..</ion-select-option>
     </ion-select>
+  </ion-item>
+  
+  <!-- Mostrar selección actual --> <!--cambio aqui 2 - nuevo bloque-->
+  <ion-item *ngIf="diagnosticoSeleccionado">
+    <ion-label>Selección actual:</ion-label>
+    <ion-text color="primary">{{diagnosticoSeleccionado}}</ion-text>
   </ion-item>
 </div>
 
   <!-- Ingreso de Medicamento -->
-<div class="select-container">
+<div>
   <ion-item>
     <ion-select justify="space-between" label="Ingrese Medicamento" placeholder=" ">      
       <ion-select-option value="A" class="blue-treatment">Medicamento  A</ion-select-option>
       <ion-select-option value="B" class="blue-treatment">Medicamento  B</ion-select-option>
       <ion-select-option value="C" class="blue-treatment">Medicamento  C</ion-select-option>
-      <ion-select-option value="D" class="blue-treatment">Medicamento  D</ion-select-option>
-      <ion-select-option value="E" class="blue-treatment">Medicamento  E</ion-select-option>
-      <ion-select-option value="F" class="blue-treatment">Medicamento  F</ion-select-option>
-      <ion-select-option value="G" class="blue-treatment">Medicamento  G</ion-select-option>
-      <ion-select-option value="H" class="blue-treatment">Medicamento  H</ion-select-option>
-      <ion-select-option value="I" class="blue-treatment">Medicamento  I</ion-select-option>
+      <ion-select-option value="D" class="blue-treatment">Otra..</ion-select-option>
     </ion-select>
   </ion-item>
 </div>
 
   <!-- Días -->
-<div class="select-container">
+<div>
   <ion-item>
     <ion-select justify="space-between" label="Seleccione Días" placeholder=" ">      
-        <ion-select-option value="A">1</ion-select-option>
-        <ion-select-option value="B">2</ion-select-option>
-        <ion-select-option value="C">3</ion-select-option>
-        <ion-select-option value="D">5</ion-select-option>
-        <ion-select-option value="E">7</ion-select-option>
-        <ion-select-option value="F">14</ion-select-option>
-        <ion-select-option value="G">30</ion-select-option>
-        <ion-select-option value="H">60</ion-select-option>
-        <ion-select-option value="I">90</ion-select-option>
+        <ion-select-option value="A">A</ion-select-option>
+        <ion-select-option value="B">B</ion-select-option>
+        <ion-select-option value="C">C</ion-select-option>
+        <ion-select-option value="D">Otra..</ion-select-option>
     </ion-select>
   </ion-item>
 </div>
 
   <!-- Cantidad de veces al día -->
-<div class="select-container">
+<div>
   <ion-item>
     <ion-select justify="space-between" label="Cantidad de veces" placeholder=" ">      
       <ion-select-option value="A">1</ion-select-option>
@@ -73,42 +68,92 @@
       <ion-select-option value="C">3</ion-select-option>
       <ion-select-option value="D">4</ion-select-option>
       <ion-select-option value="A">5</ion-select-option>
-      <ion-select-option value="B">6</ion-select-option>
-      <ion-select-option value="C">7</ion-select-option>
-      <ion-select-option value="D">8</ion-select-option>
     </ion-select>
   </ion-item>
 </div>
+
 
   <!-- Hora Inicio -->
-<div class="select-container">
+
+  <ion-item lines="none">
+  <ion-label>Seleccionar Hora:</ion-label>
+  <ion-select justify="space-between" aria-label="Hora" placeholder="00">
+    <ion-select-option value="00">00</ion-select-option>
+    <ion-select-option value="01">01</ion-select-option>
+    <ion-select-option value="02">02</ion-select-option>
+    <ion-select-option value="03">03</ion-select-option>
+    <ion-select-option value="04">04</ion-select-option>
+    <ion-select-option value="05">05</ion-select-option>
+    <ion-select-option value="06">06</ion-select-option>
+    <ion-select-option value="07">07</ion-select-option>
+    <ion-select-option value="08">08</ion-select-option>
+    <ion-select-option value="09">09</ion-select-option>
+    <ion-select-option value="10">10</ion-select-option>
+    <ion-select-option value="11">11</ion-select-option>
+    <ion-select-option value="12">12</ion-select-option>
+    <ion-select-option value="13">13</ion-select-option>
+    <ion-select-option value="14">14</ion-select-option>
+    <ion-select-option value="15">15</ion-select-option>
+    <ion-select-option value="16">16</ion-select-option>
+    <ion-select-option value="17">17</ion-select-option>
+    <ion-select-option value="18">18</ion-select-option>
+    <ion-select-option value="19">19</ion-select-option>
+    <ion-select-option value="20">20</ion-select-option>
+    <ion-select-option value="21">21</ion-select-option>
+    <ion-select-option value="22">22</ion-select-option>
+    <ion-select-option value="23">23</ion-select-option>
+  </ion-select>
+  <ion-text >:   </ion-text>
+  <ion-select justify="space-between" aria-label="Minutos" placeholder="00">
+    <ion-select-option value="00">00</ion-select-option>
+    <ion-select-option value="01">05</ion-select-option>
+    <ion-select-option value="02">10</ion-select-option>
+    <ion-select-option value="03">15</ion-select-option>
+    <ion-select-option value="04">20</ion-select-option>
+    <ion-select-option value="05">25</ion-select-option>
+    <ion-select-option value="06">30</ion-select-option>
+    <ion-select-option value="07">35</ion-select-option>
+    <ion-select-option value="08">40</ion-select-option>
+    <ion-select-option value="09">45</ion-select-option>
+    <ion-select-option value="10">50</ion-select-option>
+  </ion-select>
+</ion-item>
+
+
+
+
+ <!-- Cargar Imagen de medicamento -->
+ 
+ <div class="image-upload-container">
   <ion-item>
-    <ion-select justify="space-between" label="Seleccione Hora Inicio" placeholder=" ">      
-      <ion-select-option value="0:00">0:00 a.m.</ion-select-option>
-      <ion-select-option value="0:30">0:30 a.m.</ion-select-option>
-      <ion-select-option value="1:00">1:00 a.m.</ion-select-option>
-      <ion-select-option value="1:30">1:30 a.m.</ion-select-option>
-      <ion-select-option value="2:00">2:00 a.m.</ion-select-option>
-      <ion-select-option value="2:30">2:30 a.m.</ion-select-option>
-      <ion-select-option value="3:00">3:00 a.m.</ion-select-option>
-      <ion-select-option value="3:30">3:30 a.m.</ion-select-option>
-      <ion-select-option value="4:00">4:00 a.m.</ion-select-option>
-    </ion-select>
+    <ion-label>Imagen del medicamento</ion-label>
   </ion-item>
+  <div class="image-preview" (click)="fileInput.click()">
+    <img *ngIf="capturedImage" [src]="capturedImage" alt="Imagen capturada">
+    <ion-icon *ngIf="!capturedImage" name="camera" class="camera-icon"></ion-icon>
+    <ion-text *ngIf="!capturedImage" class="upload-text">Toca aquí para agregar una foto</ion-text>
+    <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;"capture="environment">
+  </div>
 </div>
 
 
-
-<!--agr aqui-->
+<div class="save-button-container">
+  <ion-button expand="block" color="warning" (click)="guardarPrescripcion()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Guardar Prescripción
+  </ion-button>
+</div>
 
 </ion-content>
-
+<br>
+<br>
+<br>
 
 <!--boton para cierre de sesion-->
 <ion-footer>  
     <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
       Cerrar Sesión
     </ion-button>  
-</ion-footer>
+</ion-footer>  
 
-
+ 

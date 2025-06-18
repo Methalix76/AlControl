@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-consulthist',
   templateUrl: './consulthist.page.html',
   styleUrls: ['./consulthist.page.scss'],
+  standalone:false,
 })
 export class ConsulthistPage implements OnInit {
 

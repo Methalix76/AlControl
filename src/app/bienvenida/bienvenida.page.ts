@@ -84,7 +84,7 @@ export class BienvenidaPage implements OnInit {
 
   // Navegación para "Ver Medicamento" (aún pendiente la vista)
   async goToVerMedicamento() {
-    await this.presentToast('Funcionalidad "Ver Medicamento" en desarrollo.', 'secondary');
+    this.navCtrl.navigateForward('/vermed');
     // En el futuro: this.navCtrl.navigateForward('/ver-medicamento');
   }
 

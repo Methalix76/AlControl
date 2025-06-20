@@ -35,8 +35,7 @@ const routes: Routes = [
   {
     path: 'registromed',
     loadChildren: () => import('./registromed/registromed.module').then( m => m.RegistromedPageModule)
-  },
-  {
+  },  {
     path: 'vermed',
     loadChildren: () => import('./vermed/vermed.module').then( m => m.VermedPageModule)
   },

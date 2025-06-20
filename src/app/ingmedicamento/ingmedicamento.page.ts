@@ -1,56 +1,37 @@
-// ingmedicamento.page.ts
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
-import { MedicamentoService } from '../services/medicamento.service';
 
 @Component({
   selector: 'app-ingmedicamento',
   templateUrl: './ingmedicamento.page.html',
   styleUrls: ['./ingmedicamento.page.scss'],
-  standalone:false,
+  standalone: false,
 })
 export class IngmedicamentoPage implements OnInit {
-  capturedImage: string | ArrayBuffer | null = null;
-  diagnostico: string = '';
+  
+  capturedImage: string | ArrayBuffer | null = null;  /* Variables para imagen */
+  diagnostico: string = ''; /* Variables para formulario */
   medicamento: string = '';
   dias: string = '';
   cantidadVeces: string = '';
   horaInicio: string = '';
-  
-  diagnosticos: string[] = [];
-  medicamentos: any[] = [];
-  presentaciones: string[] = ['Cápsula(s)', 'Tableta(s)', 'Jarabe', 'Otra'];
-  frecuencias: number[] = [1, 2, 3, 4, 6, 8, 12];
-  duraciones: number[] = [1, 2, 3, 5, 7, 10, 15, 30];
-  
-  cantidad: string = '1';
-  presentacion: string = 'Tableta(s)';
-  frecuencia: string = '8';
-  duracion: string = '7';
-  nuevoDiagnostico: string = '';
-  mostrarInputDiagnostico: boolean = false;
-  nuevoMedicamento: string = '';
-  mostrarInputMedicamento: boolean = false;
 
+  
   constructor(
     private auth: Auth,
     private loadingController: LoadingController,
     private navCtrl: NavController,
-    private toastController: ToastController,
-    private medicamentoService: MedicamentoService
+    private toastController: ToastController
   ) { }
 
   ngOnInit() {
-    this.cargarDiagnosticos();
   }
 
-  // Método para navegar atrás
   goBack() {
     this.navCtrl.navigateBack('/bienvenida');
   }
 
-  // Método para mostrar toasts
   async presentToast(message: string, color: string = 'primary') {
     const toast = await this.toastController.create({
       message: message,
@@ -58,10 +39,9 @@ export class IngmedicamentoPage implements OnInit {
       color: color,
       position: 'top'
     });
-    await toast.present();
+    toast.present();
   }
 
-  // Método para cerrar sesión
   async logout() {
     const loading = await this.loadingController.create({
       message: 'Cerrando sesión...',
@@ -80,18 +60,19 @@ export class IngmedicamentoPage implements OnInit {
     }
   }
 
-  // Método para manejar la selección de archivos
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     
     if (input.files && input.files[0]) {
       const file = input.files[0];
       
+      // Validar tipo de archivo
       if (!file.type.match('image.*')) {
         this.presentToast('Por favor selecciona una imagen', 'warning');
         return;
       }
       
+      // Validar tamaño de archivo (máximo 5MB)
       if (file.size > 5 * 1024 * 1024) {
         this.presentToast('Imagen es muy grande (máx. 5MB)', 'warning');
         return;
@@ -112,63 +93,11 @@ export class IngmedicamentoPage implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-
-  cargarDiagnosticos() {
-    this.diagnosticos = this.medicamentoService.getDiagnosticos();
-  }
-
-  onDiagnosticoChange(event: any) {
-    this.diagnostico = event.detail.value;
-    if (this.diagnostico === 'nuevo') {
-      this.mostrarInputDiagnostico = true;
-    } else {
-      this.mostrarInputDiagnostico = false;
-      this.cargarMedicamentosPorDiagnostico();
-    }
-  }
-
-  cargarMedicamentosPorDiagnostico() {
-    this.medicamentos = this.medicamentoService.getMedicamentosByDiagnostico(this.diagnostico);
-  }
-
-  onMedicamentoChange(event: any) {
-    this.medicamento = event.detail.value;
-    if (this.medicamento === 'nuevo') {
-      this.mostrarInputMedicamento = true;
-    } else {
-      this.mostrarInputMedicamento = false;
-    }
-  }
-
-  async guardarNuevoDiagnostico() {
-    if (!this.nuevoDiagnostico) {
-      await this.presentToast('Por favor ingrese un diagnóstico', 'warning');
-      return;
-    }
-
-    const loading = await this.loadingController.create({
-      message: 'Guardando nuevo diagnóstico...',
-    });
-    await loading.present();
-
-    try {
-      await this.medicamentoService.addNuevoDiagnostico(this.nuevoDiagnostico);
-      this.diagnostico = this.nuevoDiagnostico;
-      this.diagnosticos.push(this.nuevoDiagnostico);
-      this.mostrarInputDiagnostico = false;
-      this.nuevoDiagnostico = '';
-      await loading.dismiss();
-      await this.presentToast('Diagnóstico guardado correctamente', 'success');
-    } catch (error) {
-      await loading.dismiss();
-      await this.presentToast('Error al guardar el diagnóstico', 'danger');
-      console.error('Error:', error);
-    }
-  }
-
+    
   async guardarPrescripcion() {
-    if (!this.diagnostico || !this.medicamento || !this.duracion || !this.frecuencia || !this.horaInicio) {
-      await this.presentToast('Por favor complete todos los campos', 'warning');
+    // Validación de campos obligatorios
+    if (!this.diagnostico || !this.medicamento || !this.dias || !this.cantidadVeces || !this.horaInicio) {
+      this.presentToast('Por favor complete todos los campos', 'warning');
       return;
     }
 
@@ -178,28 +107,35 @@ export class IngmedicamentoPage implements OnInit {
     await loading.present();
 
     try {
+      // Aquí construirías el objeto con los datos a guardar
       const prescripcion = {
         diagnostico: this.diagnostico,
         medicamento: this.medicamento,
-        cantidad: this.cantidad,
-        presentacion: this.presentacion,
-        frecuencia: this.frecuencia,
-        duracion: this.duracion,
+        dias: this.dias,
+        cantidadVeces: this.cantidadVeces,
         horaInicio: this.horaInicio,
         imagen: this.capturedImage,
-        fechaCreacion: new Date().toISOString(),
-        usuarioId: this.auth.currentUser?.uid
+        fechaCreacion: new Date().toISOString()
       };
 
-      await this.medicamentoService.guardarPrescripcion(prescripcion);
+      // Aquí iría tu lógica para guardar en Firebase o tu backend
+      console.log('Datos a guardar:', prescripcion);
+      
+      // Simulación de tiempo de guardado
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
       await loading.dismiss();
-      await this.presentToast('Prescripción guardada exitosamente', 'success');
+      this.presentToast('Prescripción guardada exitosamente', 'success');
+      
+      // Opcional: resetear el formulario
       this.resetForm();
+      
+      // Opcional: redirigir a otra página
+      // this.navCtrl.navigateBack('/bienvenida');
       
     } catch (error) {
       await loading.dismiss();
-      await this.presentToast('Error al guardar la prescripción', 'danger');
+      this.presentToast('Error al guardar la prescripción', 'danger');
       console.error('Error al guardar:', error);
     }
   }
@@ -207,15 +143,9 @@ export class IngmedicamentoPage implements OnInit {
   resetForm() {
     this.diagnostico = '';
     this.medicamento = '';
-    this.cantidad = '1';
-    this.presentacion = 'Tableta(s)';
-    this.frecuencia = '8';
-    this.duracion = '7';
+    this.dias = '';
+    this.cantidadVeces = '';
     this.horaInicio = '';
     this.capturedImage = null;
-    this.mostrarInputDiagnostico = false;
-    this.mostrarInputMedicamento = false;
-    this.nuevoDiagnostico = '';
-    this.nuevoMedicamento = '';
   }
 }

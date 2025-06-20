@@ -1,165 +1,120 @@
+
 <ion-header [translucent]="true">
-  <ion-toolbar> 
-    <ion-buttons slot="end">
-      <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
-        <img src="assets/img/5469759.png">
-      </ion-button>
-    </ion-buttons> 
-    <ion-title>INGRESE MEDICAMENTO</ion-title>
+      <ion-toolbar> 
+        <ion-buttons slot="end">
+          <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+            <img src="assets/img/5469759.png">
+          </ion-button>
+        </ion-buttons> 
+     <ion-title>INGRESE MEDICAMENTO</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <!-- Prescripción -->
 <ion-header>
   <br>
-  <ion-label color="danger" style="text-align: center;"><h1>PRESCRIPCION</h1></ion-label>
+    <ion-label  color="danger" style="text-align: center;"><h1 >PRESCRIPCION</h1></ion-label>
   <br>
 </ion-header>
 
 <ion-content style="--background: #ffffff;">
-  <!-- Selector de Diagnóstico -->
-  <div class="select-container">
-    <ion-item>
-      <ion-select 
-        justify="space-between" 
-        label="Diagnóstico" 
-        placeholder="Seleccionar diagnóstico"
-        (ionChange)="onDiagnosticoChange($event)"
-        interface="action-sheet"
-      >      
-        <ion-select-option *ngFor="let diagnostico of diagnosticos" [value]="diagnostico">
-          {{ diagnostico }}
-        </ion-select-option>
-        <ion-select-option value="nuevo">Agregar nuevo diagnóstico...</ion-select-option>
-      </ion-select>
-    </ion-item>
-    
-    <!-- Input para nuevo diagnóstico -->
-    <ion-item *ngIf="mostrarInputDiagnostico">
-      <ion-input [(ngModel)]="nuevoDiagnostico" placeholder="Ingrese nuevo diagnóstico"></ion-input>
-      <ion-button slot="end" (click)="guardarNuevoDiagnostico()">Guardar</ion-button>
-    </ion-item>
-  </div>
+  <!-- Selector de Tratamiento -->
+<div class="select-container">
+  <ion-item>
+    <ion-select justify="space-between" label="Diagnostico" placeholder="Seleccionar">      
+      <ion-select-option value="A" class="blue-treatment">Tratamento A</ion-select-option>
+      <ion-select-option value="B" class="blue-treatment">Tratamento B</ion-select-option>
+      <ion-select-option value="C" class="blue-treatment">Tratamento C</ion-select-option>
+      <ion-select-option value="D" class="blue-treatment">Otra..</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
 
-  <!-- Selector de Medicamento -->
-  <div class="select-container">
-    <ion-item>
-      <ion-select 
-        justify="space-between" 
-        label="Medicamento" 
-        placeholder="Seleccionar medicamento"
-        (ionChange)="onMedicamentoChange($event)"
-        interface="action-sheet"
-        [disabled]="!diagnostico"
-      >      
-        <ion-select-option *ngFor="let med of medicamentos" [value]="med['Nombre Medicamento'] + ' - ' + med['Nombre comercial'] + ' (' + med.gramaje + ')'">
-          {{ med['Nombre Medicamento'] }} - {{ med['Nombre comercial'] }} ({{ med.gramaje }})
-        </ion-select-option>
-        <ion-select-option value="nuevo">Agregar nuevo medicamento...</ion-select-option>
-      </ion-select>
-    </ion-item>
-    
-    <!-- Input para nuevo medicamento -->
-    <ion-item *ngIf="mostrarInputMedicamento">
-      <ion-input [(ngModel)]="nuevoMedicamento" placeholder="Ingrese nuevo medicamento"></ion-input>
-      <ion-button slot="end" (click)="medicamento = nuevoMedicamento; mostrarInputMedicamento = false">Usar</ion-button>
-    </ion-item>
-  </div>
+  <!-- Ingreso de Medicamento -->
+<div class="select-container">
+  <ion-item>
+    <ion-select justify="space-between" label="Ingrese Medicamento" placeholder="Seleccionar">      
+      <ion-select-option value="A" class="blue-treatment">Medicamento  A</ion-select-option>
+      <ion-select-option value="B" class="blue-treatment">Medicamento  B</ion-select-option>
+      <ion-select-option value="C" class="blue-treatment">Medicamento  C</ion-select-option>
+      <ion-select-option value="D" class="blue-treatment">Otra..</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
 
-  <!-- Dosis y Presentación -->
-  <div class="select-container">
-    <ion-item>
-      <ion-label>Dosis:</ion-label>
-      <ion-select 
-        justify="space-between"  
-        placeholder="Cantidad"
-        [(ngModel)]="cantidad"
-        interface="action-sheet"
-      >
-        <ion-select-option *ngFor="let num of [1,2,3,4,5]" [value]="num.toString()">
-          {{ num }}
-        </ion-select-option>
-        <ion-select-option value="otra">Otra...</ion-select-option>
-      </ion-select>
-      
-      <ion-select 
-        justify="space-between"  
-        placeholder="Presentación"
-        [(ngModel)]="presentacion"
-        interface="action-sheet"
-      >
-        <ion-select-option *ngFor="let pres of presentaciones" [value]="pres">
-          {{ pres }}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>
+  <!-- presentacion -->
+<div class="select-container">
+  <ion-item>
+  <ion-label>Dosis: Cant</ion-label>
+  <ion-select justify="space-between"  placeholder="Selec">
+    <ion-select-option value="00">01</ion-select-option>
+    <ion-select-option value="01">02</ion-select-option>
+    <ion-select-option value="02">03</ion-select-option>
+    <ion-select-option value="03">Otra..</ion-select-option>
+  </ion-select>
+  <ion-select justify="space-between"  placeholder="Selec">
+    <ion-select-option value="00">Capsula(s)</ion-select-option>
+    <ion-select-option value="01">Tableta(s)</ion-select-option>
+    <ion-select-option value="02">Jarabe</ion-select-option>
+    <ion-select-option value="03">15</ion-select-option>
+  </ion-select>
 
-  <!-- Frecuencia y Duración -->
-  <div class="select-container">
-    <ion-item>
-      <ion-label>Cada</ion-label>
-      <ion-select 
-        justify="space-between"  
-        placeholder="Horas"
-        [(ngModel)]="frecuencia"
-        interface="action-sheet"
-      >      
-        <ion-select-option *ngFor="let freq of frecuencias" [value]="freq.toString()">
-          {{ freq }}
-        </ion-select-option>
-        <ion-select-option value="otra">Otra...</ion-select-option>
-      </ion-select>
-      <ion-label>horas</ion-label>
-      
+</ion-item>
+</div>
+  <!-- Cantidad de veces al día -->
+<div class="select-container">
+  <ion-item>
+    <ion-label>Cada</ion-label>
+    <ion-select justify="space-between"  placeholder="Selec">      
+      <ion-select-option value="A">1</ion-select-option>
+      <ion-select-option value="B">2</ion-select-option>
+      <ion-select-option value="C">3</ion-select-option>
+      <ion-select-option value="D">4</ion-select-option>
+      <ion-select-option value="A">Otra</ion-select-option>
+    </ion-select>
+    <ion-label>Horas;</ion-label>
+
       <ion-label>por</ion-label>
-      <ion-select 
-        justify="space-between" 
-        placeholder="Días"
-        [(ngModel)]="duracion"
-        interface="action-sheet"
-      >      
-        <ion-select-option *ngFor="let dias of duraciones" [value]="dias.toString()">
-          {{ dias }}
-        </ion-select-option>
-        <ion-select-option value="otra">Otra...</ion-select-option>
-      </ion-select>
-      <ion-label>días</ion-label>
-    </ion-item>
-  </div>
+    <ion-select justify="space-between" placeholder="Selec">      
+      <ion-select-option value="A">1</ion-select-option>
+      <ion-select-option value="B">2</ion-select-option>
+      <ion-select-option value="C">3</ion-select-option>
+      <ion-select-option value="D">4</ion-select-option>
+        <ion-select-option value="D">Otra..</ion-select-option>
+    </ion-select>
+          <ion-label>dias</ion-label>
+  </ion-item>
+</div>
 
-  <!-- Hora de inicio -->
-  <div class="select-container">
-    <ion-item>
-      <ion-label>Hora de inicio:</ion-label>
-      <ion-input type="time" [(ngModel)]="horaInicio"></ion-input>
-    </ion-item>
+ <!-- Cargar Imagen de medicamento -->
+ 
+ <div class="image-upload-container">
+  <ion-item>
+    <ion-label>Cargar Imagen desde dispositivo</ion-label>
+  </ion-item>
+  <div class="image-preview" (click)="fileInput.click()">
+    <img *ngIf="capturedImage" [src]="capturedImage" alt="Imagen capturada">
+    <ion-icon *ngIf="!capturedImage" name="camera" class="camera-icon"></ion-icon>
+    <ion-text *ngIf="!capturedImage" class="upload-text">Toca aquí para agregar una foto</ion-text>
+    <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;"capture="environment">
   </div>
+</div>
 
-  <!-- Cargar Imagen de medicamento -->
-  <div class="image-upload-container">
-    <ion-item>
-      <ion-label>Cargar Imagen desde dispositivo</ion-label>
-    </ion-item>
-    <div class="image-preview" (click)="fileInput.click()">
-      <img *ngIf="capturedImage" [src]="capturedImage" alt="Imagen capturada">
-      <ion-icon *ngIf="!capturedImage" name="camera" class="camera-icon"></ion-icon>
-      <ion-text *ngIf="!capturedImage" class="upload-text">Toca aquí para agregar una foto</ion-text>
-      <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;" capture="environment">
-    </div>
-  </div>
 
-  <div class="save-button-container">
-    <ion-button expand="block" color="warning" (click)="guardarPrescripcion()">
-      <ion-icon name="save-outline" slot="start"></ion-icon>
-      Guardar Prescripción
-    </ion-button>
-  </div> 
+ <div class="save-button-container">
+  <ion-button expand="block" color="warning" (click)="guardarPrescripcion()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Guardar Prescripción
+  </ion-button>
+</div> 
 </ion-content>
+<br>
+<br>
+<br>
 
 <!--boton para cierre de sesion-->
 <ion-footer>  
-  <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
-    Cerrar Sesión
-  </ion-button>  
-</ion-footer>
+    <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+      Cerrar Sesión
+    </ion-button>  
+</ion-footer>  

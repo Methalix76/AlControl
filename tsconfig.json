@@ -23,7 +23,7 @@
       "dom"
     ],
     "useDefineForClassFields": false,
-    // Añadir estas dos opciones para permitir importación de JSON
+    //  importación de JSON
     "resolveJsonModule": true,
     "esModuleInterop": true,
     // Opcional: para mejor manejo de tipos

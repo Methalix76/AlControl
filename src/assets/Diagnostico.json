@@ -1,0 +1,304 @@
+{
+  "Diagnostico": [
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Metformina",
+      "Nombre comercial": "Hipoglucin",
+      "gramaje": "500 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Metformina",
+      "Nombre comercial": "Hipoglucin",
+      "gramaje": "750 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Metformina",
+      "Nombre comercial": "Hipoglucin",
+      "gramaje": "1000 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Glibenclamida",
+      "Nombre comercial": "Daonil",
+      "gramaje": "2.5 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Glibenclamida",
+      "Nombre comercial": "Daonil",
+      "gramaje": "5 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Glimepirida",
+      "Nombre comercial": "Amaryl",
+      "gramaje": "1 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Glimepirida",
+      "Nombre comercial": "Amaryl",
+      "gramaje": "2 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Glimepirida",
+      "Nombre comercial": "Amaryl",
+      "gramaje": "4 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Sitagliptina",
+      "Nombre comercial": "Januvia",
+      "gramaje": "50 mg"
+    },
+    {
+      "Diagnostico": "Diabetes Mellitus Tipo 2",
+      "Nombre Medicamento": "Sitagliptina",
+      "Nombre comercial": "Januvia",
+      "gramaje": "100 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Losartán",
+      "Nombre comercial": "Losartán Genérico",
+      "gramaje": "25 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Losartán",
+      "Nombre comercial": "Losartán Genérico",
+      "gramaje": "50 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Losartán",
+      "Nombre comercial": "Losartán Genérico",
+      "gramaje": "100 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Enalapril",
+      "Nombre comercial": "Enalapril Genérico",
+      "gramaje": "5 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Enalapril",
+      "Nombre comercial": "Enalapril Genérico",
+      "gramaje": "10 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Enalapril",
+      "Nombre comercial": "Enalapril Genérico",
+      "gramaje": "20 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Amlodipino",
+      "Nombre comercial": "Amlodipino Genérico",
+      "gramaje": "5 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Amlodipino",
+      "Nombre comercial": "Amlodipino Genérico",
+      "gramaje": "10 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Hidroclorotiazida",
+      "Nombre comercial": "Disalun",
+      "gramaje": "12.5 mg"
+    },
+    {
+      "Diagnostico": "Hipertensión Arterial",
+      "Nombre Medicamento": "Hidroclorotiazida",
+      "Nombre comercial": "Disalun",
+      "gramaje": "25 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Atorvastatina",
+      "Nombre comercial": "Atorvastatina Genérico",
+      "gramaje": "10 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Atorvastatina",
+      "Nombre comercial": "Atorvastatina Genérico",
+      "gramaje": "20 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Atorvastatina",
+      "Nombre comercial": "Atorvastatina Genérico",
+      "gramaje": "40 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Rosuvastatina",
+      "Nombre comercial": "Crestor",
+      "gramaje": "5 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Rosuvastatina",
+      "Nombre comercial": "Crestor",
+      "gramaje": "10 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Rosuvastatina",
+      "Nombre comercial": "Crestor",
+      "gramaje": "20 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Simvastatina",
+      "Nombre comercial": "Zocor",
+      "gramaje": "20 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Simvastatina",
+      "Nombre comercial": "Zocor",
+      "gramaje": "40 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Ezetimiba",
+      "Nombre comercial": "Ezetrol",
+      "gramaje": "10 mg"
+    },
+    {
+      "Diagnostico": "Dislipidemia",
+      "Nombre Medicamento": "Fenofibrato",
+      "Nombre comercial": "Lipanthyl",
+      "gramaje": "160 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Paracetamol",
+      "Nombre comercial": "Panadol",
+      "gramaje": "500 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Paracetamol",
+      "Nombre comercial": "Panadol",
+      "gramaje": "1 g"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Ibuprofeno",
+      "Nombre comercial": "Ibuprofeno Genérico",
+      "gramaje": "400 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Ibuprofeno",
+      "Nombre comercial": "Ibuprofeno Genérico",
+      "gramaje": "600 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Diclofenaco",
+      "Nombre comercial": "Voltaren",
+      "gramaje": "50 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Celecoxib",
+      "Nombre comercial": "Celebrex",
+      "gramaje": "100 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Celecoxib",
+      "Nombre comercial": "Celebrex",
+      "gramaje": "200 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Naproxeno",
+      "Nombre comercial": "Naproxeno Genérico",
+      "gramaje": "250 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Naproxeno",
+      "Nombre comercial": "Naproxeno Genérico",
+      "gramaje": "500 mg"
+    },
+    {
+      "Diagnostico": "Artrosis",
+      "Nombre Medicamento": "Glucosamina + Condroitina",
+      "Nombre comercial": "Artroflex",
+      "gramaje": "1500 mg + 1200 mg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Alendronato",
+      "Nombre comercial": "Fosamax",
+      "gramaje": "70 mg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Risedronato",
+      "Nombre comercial": "Actonel",
+      "gramaje": "35 mg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Calcio + Vitamina D",
+      "Nombre comercial": "Caltrate",
+      "gramaje": "500 mg + 200 UI"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Calcio + Vitamina D",
+      "Nombre comercial": "Caltrate",
+      "gramaje": "600 mg + 400 UI"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Calcio Carbonato",
+      "Nombre comercial": "Orocal",
+      "gramaje": "500 mg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Ibandronato",
+      "Nombre comercial": "Bonviva",
+      "gramaje": "150 mg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Teriparatida",
+      "Nombre comercial": "Forteo",
+      "gramaje": "20 µg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Denosumab",
+      "Nombre comercial": "Prolia",
+      "gramaje": "60 mg"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Estroncio",
+      "Nombre comercial": "Protelos",
+      "gramaje": "2 g"
+    },
+    {
+      "Diagnostico": "Osteoporosis",
+      "Nombre Medicamento": "Ácido Zoledrónico",
+      "Nombre comercial": "Aclasta",
+      "gramaje": "5 mg"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+        <img src="assets/img/5469759.png">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>VER MEDICAMENTOS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    Usuario: {{ usuario }}
+  </ion-item>
+
+  <ion-list *ngFor="let p of prescripciones">
+    <ion-item>Diagnóstico: {{ p.diagnostico }}</ion-item>
+    <ion-item>Medicamento: {{ p.medicamento }}</ion-item>
+    <ion-item>Dosis: {{ p.gramaje }} - {{ p.cantidad }} {{ p.presentacion }}</ion-item>
+    <ion-item>
+      Imagen: <img [src]="p.imagen" *ngIf="p.imagen" style="max-width: 100px;">
+    </ion-item>
+    <ion-item>Próxima dosis: {{ p.proxima_dosis }}</ion-item>
+    <ion-item>Siguiente dosis: {{ p.proxima_dosis_2 }}</ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+    Cerrar Sesión
+  </ion-button>
+</ion-footer>

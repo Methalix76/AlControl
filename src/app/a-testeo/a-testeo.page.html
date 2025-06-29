@@ -1,0 +1,194 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+        <img src="assets/img/5469759.png">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>INGRESE MEDICAMENTO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <br>
+  <ion-label color="danger" style="text-align: center;">
+    <h1>PRESCRIPCION</h1>
+  </ion-label>
+  <br>
+</ion-header>
+
+<ion-content style="--background: #ffffff;">
+
+  <!-- Diagnóstico -->
+  <ion-item>
+    <ion-select
+      [(ngModel)]="diagnosticoSeleccionado"
+      (ionChange)="onDiagnosticoChange()"
+      label="Diagnóstico"
+      placeholder="Seleccionar"
+      justify="space-between"
+    >
+      <ion-select-option *ngFor="let diag of diagnosticos" [value]="diag.codigo">
+        {{ diag.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Medicamento -->
+  <ion-item *ngIf="medicamentos.length > 0">
+    <ion-select
+      [(ngModel)]="medicamentoSeleccionado"
+      (ionChange)="onMedicamentoChange()"
+      label="Medicamento"
+      placeholder="Seleccionar"
+      justify="space-between"
+    >
+      <ion-select-option *ngFor="let med of medicamentos" [value]="med.nombre">
+        {{ med.nombre }} - {{ med.comercial }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Gramaje -->
+  <ion-item *ngIf="gramajes.length > 0">
+    <ion-select
+      [(ngModel)]="gramajeSeleccionado"
+      label="Gramaje"
+      placeholder="Seleccionar"
+      justify="space-between"
+    >
+      <ion-select-option *ngFor="let g of gramajes" [value]="g">
+        {{ g }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+
+  <!-- Cantidad y presentacion -->
+<!-- Cantidad -->
+<ion-item *ngIf="gramajeSeleccionado">
+  <ion-select
+    [(ngModel)]="cantidadSeleccionada"
+    (ionChange)="onCantidadChange()"
+    label="Cantidad"
+    placeholder="Seleccionar"
+    justify="space-between"
+  >
+    <ion-select-option *ngFor="let c of cantidades" [value]="c">
+      {{ c }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+
+<!-- Presentación -->
+<ion-item *ngIf="presentaciones.length > 0">
+  <ion-select
+    [(ngModel)]="presentacionSeleccionada"
+    label="Presentación"
+    placeholder="Seleccionar"
+    justify="space-between"
+  >
+    <ion-select-option *ngFor="let p of presentaciones" [value]="p">
+      {{ p }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+
+  <!-- fin Cantidad y presentacion -->
+
+
+  <!-- Cantidad de veces al día -->
+<div class="select-container" *ngIf="presentacionSeleccionada">
+  <ion-item >
+    <ion-label>Cada</ion-label>
+     <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
+        <ion-input
+          type="number"
+          inputmode="numeric"
+          [(ngModel)]="frecuenciaHoras"
+          (ionInput)="onFrecuenciaInput()"
+          placeholder="--" 
+          style="text-align: center;">
+        </ion-input>
+    <ion-label>Horas por</ion-label>
+    <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
+        <ion-input
+          type="number"
+          inputmode="numeric"
+          [(ngModel)]="duracionDias"
+          placeholder="--"
+          style="text-align: center;">
+        </ion-input>
+          <ion-label>dias</ion-label>
+  </ion-item>
+</div>
+
+  <!-- Hora Inicial -->
+<div class="select-container" *ngIf="presentacionSeleccionada">
+  <ion-item >
+    <ion-label>Hora inicio</ion-label>
+     <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
+        <ion-input
+          type="number"
+          inputmode="numeric"
+          [(ngModel)]="horaInicio"
+          (ionInput)="onFrecuenciaInput()"
+          placeholder="00" 
+          style="text-align: center;">
+        </ion-input>
+    <ion-label>:</ion-label>
+    <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
+        <ion-input
+          type="number"
+          inputmode="numeric"
+          [(ngModel)]="minutoInicio"
+          placeholder="00"
+          style="text-align: center;">
+        </ion-input>
+        <ion-label>.</ion-label>
+  </ion-item>
+</div>
+
+
+
+
+
+
+<!-- Cargar Imagen de medicamento -->
+ <!--
+ <div class="image-upload-container" >
+  <ion-item>
+    <ion-label>Cargar Imagen desde dispositivo</ion-label>
+  </ion-item>
+  <div class="image-preview" (click)="fileInput.click()">
+    <img *ngIf="capturedImage" [src]="capturedImage" alt="Imagen capturada">
+    <ion-icon *ngIf="!capturedImage" name="camera" class="camera-icon"></ion-icon>
+    <ion-text *ngIf="!capturedImage" class="upload-text">Toca aquí para agregar una foto</ion-text>
+    <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" style="display: none;"capture="environment">
+  </div>
+</div>
+ -->
+
+ <div class="save-button-container">
+  <ion-button expand="block" color="warning" (click)="guardarPrescripcion()">
+    <ion-icon name="save-outline" slot="start"></ion-icon>
+    Guardar Prescripción
+  </ion-button>
+</div> 
+</ion-content>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+<ion-footer>
+  <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+    Cerrar Sesión
+  </ion-button>
+</ion-footer>

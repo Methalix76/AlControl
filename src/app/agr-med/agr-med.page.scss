@@ -1,0 +1,77 @@
+  .select-container {
+    border: 1px solid #525f7a; /* Borde azul similar al color primary de Ionic */
+
+    padding: 10px; /* Espacio interno */
+    margin: 10px 0; /* Margen exterior */
+  }
+  
+  .blue-treatment::part(text) {
+    color: #3880ff; /* Color azul para los medicamentos */
+  }
+  
+  ion-select {
+    width: auto; /* Asegura que el select ocupe todo el ancho */
+  }
+
+  .image-upload-container {
+    margin: 16px;
+    text-align: center;
+  }
+
+  .image-preview {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    position: relative;
+    overflow: hidden;
+      img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          }
+  }
+
+  .camera-icon {
+    font-size: 48px;
+    color: #5dd773;
+  }
+
+  .upload-text {
+    color: #666;
+    margin-top: 8px;
+  }
+
+  .save-button-container {
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+
+  ion-item {
+    display: flex;
+    align-items: center;
+    --inner-padding-end: 0; /* Elimina el padding extra al final del item */
+  }
+
+  ion-label {
+    margin-right: 8px; /* Espacio entre el label y el primer select */
+    white-space: nowrap; /* Evita que el label se rompa en varias líneas */
+  }
+
+//  ion-select {
+//    max-width: 70px; /* Ajusta el ancho de los selectores según sea necesario */
+//  }
+
+  .separator {
+    margin: 0 4px; /* Espacio alrededor del separador ":" */
+    font-size: 1.2em; /* Hace el ":" un poco más grande */
+  }
+
+
+  

@@ -1,0 +1,45 @@
+<!-- Este es mi: bienvenida.page.html -->
+
+<ion-header>
+  <ion-toolbar class="welcome-toolbar">
+      <ion-title 
+      class="ion-text-center welcome-title"
+      >
+      ¡Hola, {{ nombreCompleto }}!
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-title class="ion-text-center treatment-title">
+  TRATAMIENTO
+</ion-title>
+
+  <div class="button-container">
+    <ion-button expand="block" class="action-button" (click)="goToVerMedicamento()">
+      Ver Medicamento
+    </ion-button>
+  </div>
+
+  <div class="image-container">
+    <img src="assets/img/alert control 4.png">
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" class="action-button" (click)="goToAgregarMedicamento()">
+      Agregar Medicamento
+    </ion-button>
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" class="action-button" (click)="goToConsultaHistorial()">
+      Consulta Historial
+    </ion-button>
+  </div>
+
+
+<ion-footer>
+  <ion-button expand="block" color="danger" class="logout-button negrita" (click)="logout()">
+    Cerrar Sesión
+  </ion-button>
+</ion-footer>

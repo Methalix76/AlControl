@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+        <img src="assets/img/5469759.png">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>VER MEDICAMENTOS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-item class="destacar1">
+    Usuario: {{ nombreCompleto }}
+  </ion-item>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let p of prescripciones">
+    <ion-item>Diagnóstico: {{ p.diagnostico }}</ion-item>
+    <ion-item>Medicamento: {{ p.medicamento }}</ion-item>
+    <ion-item class="destacar2">Dosis: {{ p.cantidad }} {{ p.presentacion }} de {{ p.gramaje }}</ion-item>
+
+    <!-- Dosis 1 -->
+    <ion-item>
+      Dosis 1: {{ p.proxima_dosis }}
+      <ion-button
+        slot="end" color="warning"
+        [disabled]="p.estado_dosis_1 === 'realizada'"
+        (click)="actualizarEstadoDosis(p, 0, 'pendiente')">
+        Pend
+      </ion-button>
+      <ion-button
+        slot="end"color="success"
+        [disabled]="p.estado_dosis_1 === 'realizada'"
+        (click)="actualizarEstadoDosis(p, 0, 'realizada')">
+        OK
+      </ion-button>
+    </ion-item>
+
+    <!-- Dosis 2 -->
+    <ion-item>
+      Dosis 2: {{ p.proxima_dosis_2 }}
+      <ion-button
+        slot="end" color="warning"
+        [disabled]="p.estado_dosis_2 === 'realizada'"
+        (click)="actualizarEstadoDosis(p, 1, 'pendiente')">
+        Pend
+      </ion-button>
+      <ion-button
+        slot="end" color="success"
+        [disabled]="p.estado_dosis_2 === 'realizada'"
+        (click)="actualizarEstadoDosis(p, 1, 'realizada')">
+        OK
+      </ion-button>
+    </ion-item>
+
+    <!-- Dosis 3 -->
+    <ion-item>
+      Dosis 3: {{ p.proxima_dosis_3 }}
+      <ion-button
+        slot="end" color="warning"
+        [disabled]="p.estado_dosis_3 === 'realizada'"
+        (click)="actualizarEstadoDosis(p, 2, 'pendiente')">
+        Pend
+      </ion-button>
+      <ion-button
+        slot="end"
+        color="success"
+        [disabled]="p.estado_dosis_3 === 'realizada'"
+        (click)="actualizarEstadoDosis(p, 2, 'realizada')">
+        OK
+      </ion-button>
+    </ion-item>
+
+    <ion-item>
+      Imagen:
+      <img [src]="p.imagen" *ngIf="p.imagen" style="max-width: 100px;" alt="Imagen del medicamento">
+    </ion-item>
+
+    <hr style="border: 0; height: 3px; background: #5d0803; margin: 10px 0;">
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+    Cerrar Sesión
+  </ion-button>
+</ion-footer>
+

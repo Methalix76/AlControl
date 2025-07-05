@@ -1,0 +1,64 @@
+/* src/app/bienvenida/bienvenida.page.scss */
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Centra el contenido verticalmente
+  align-items: center;     // Centra el contenido horizontalmente
+  height: 100%;            // Asegura que ocupe todo el alto disponible
+  text-align: center;      // Centra el texto dentro del div
+}
+
+.welcome-toolbar, .treatment-toolbar {
+  --background: var(--ion-color-primary); // O el color que desees para las toolbars
+  color: var(--ion-color-primary-contrast);
+  margin-bottom: 20px; // Espacio entre toolbars y botones
+  width: 100%; // Asegura que las toolbars ocupen todo el ancho
+  max-width: 500px; // Limita el ancho en pantallas grandes
+  border-radius: 8px; // Bordes redondeados
+}
+
+.welcome-title, .treatment-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.button-container {
+  width: 100%;
+  max-width: 400px; // Limita el ancho de los botones para que no sean demasiado anchos en pantallas grandes
+  padding: 0 16px; // Padding horizontal
+}
+
+.action-button, .logout-button {
+  margin-bottom: 15px; // Espacio entre botones
+  --border-radius: 10px; // Bordes más redondeados para los botones
+  height: 50px; // Altura fija para los botones
+  font-size: 1.1em;
+}
+
+.logout-button {
+  --background: var(--ion-color-danger); // Color rojo para el botón de cerrar sesión
+  --background-hover: var(--ion-color-danger-shade);
+}
+
+ion-content {
+  --background: #fff;
+}
+
+.image-container {
+  display: grid; /* Habilita CSS Grid en el contenedor */
+  place-items: center; /* Atajo para centrar tanto horizontal como verticalmente */
+  height: 100%; /* Asegura que el contenedor ocupe toda la altura disponible */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.negrita {
+  font-weight: bold;
+}

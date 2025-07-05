@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+        <img src="assets/img/5469759.png">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Historial de consumos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item lines="none">
+    <ion-label>
+      <h2>Usuario: {{ nombreCompleto }}</h2>
+    </ion-label>
+  </ion-item>
+
+  <ion-list *ngIf="historial.length > 0; else sinDatos">
+    <ion-item *ngFor="let item of historial">
+      <ion-label>
+        <h3><strong>Medicamento:</strong> {{ item.medicamento }}</h3>
+        <p><strong>Diagnóstico:</strong> {{ item.diagnostico }}</p>
+        <p><strong>Dosis:</strong> {{ item.dosis }}</p>
+        <p><strong>Hora programada:</strong> {{ item.hora }}</p>
+        <p>
+          <strong>Estado:</strong>
+          <ion-badge [color]="item.estado === 'realizada' ? 'success' : 'warning'">
+            {{ item.estado | titlecase }}
+          </ion-badge>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #sinDatos>
+    <ion-item>
+      <ion-label>No hay historial disponible.</ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>
+
+
+<ion-footer>
+  <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+    Cerrar Sesión
+  </ion-button>
+</ion-footer>
+

@@ -1,0 +1,110 @@
+{
+  "Dosis": [
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "1",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "1",
+      "presentacion": "Capsula"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "1",
+      "presentacion": "Cucharadas"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "2",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "2",
+      "presentacion": "Capsula"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "2",
+      "presentacion": "Cucharadas"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "3",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "3",
+      "presentacion": "Capsula"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "3",
+      "presentacion": "Cucharadas"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "4",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "4",
+      "presentacion": "Capsula"
+    },
+        {
+      "Dosis": "Dosis",
+      "Cantidad": "4",
+      "presentacion": "Cucharadas"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "5",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "5",
+      "presentacion": "Capsula"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "5",
+      "presentacion": "Cucharadas"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "6",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "6",
+      "presentacion": "Capsula"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "6",
+      "presentacion": "Cucharadas"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "7",
+      "presentacion": "Pastilla"
+    },
+    {
+      "Dosis": "Dosis",
+      "Cantidad": "7",
+      "presentacion": "Capsula"
+    },
+        {
+      "Dosis": "Dosis",
+      "Cantidad": "7",
+      "presentacion": "Cucharadas"
+    }
+
+  ]
+}

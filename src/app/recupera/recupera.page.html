@@ -1,0 +1,34 @@
+<!-- Este es mi: recupera.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+        <img src="assets/img/5469759.png">
+        </ion-button>
+      </ion-buttons>
+    <ion-title>Recuperar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding"> <div class="image-container">
+    <img src="assets/img/alert control 4.png">
+  </div>
+
+  <ion-toolbar>
+    <ion-title>Completa los campos</ion-title>
+  </ion-toolbar>
+
+  <ion-item>
+    <ion-label position="floating">Correo electrónico</ion-label>
+    <ion-input [(ngModel)]="mail" type="email" placeholder="Ingresa tu correo electrónico"></ion-input>
+    </ion-item>
+
+  <ion-button id="btnRecuppass"
+    size="large"
+    (click)="pruebaClickRecuppass()"
+    color="primary"
+    expand="block"
+    class="ion-margin-top"> Resetear Contraseña
+  </ion-button>
+</ion-content>

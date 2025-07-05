@@ -1,0 +1,56 @@
+<!-- Este es mi: register.page.html -->
+
+<ion-header [translucent]="true">  
+      <ion-toolbar> 
+      <ion-buttons slot="end">
+        <ion-button (click)="goBack()" class="custom-back-button" fill="clear">
+        <img src="assets/img/5469759.png">
+        </ion-button>
+      </ion-buttons>  
+        <ion-title>REGISTRO USUARIOS</ion-title>  
+      </ion-toolbar>  
+    </ion-header>
+
+      <h4>Favor ingresa los datos solicitados:</h4>
+    <ion-content>
+    <ion-item >  
+        <ion-label position="floating">Nombre</ion-label>
+        <br>
+        <ion-input  [(ngModel)]="nombre" type="text" placeholder="Ingresa tu Nombre"></ion-input>
+      
+        <ion-label position="floating">Apellido</ion-label>
+        <br>
+        <ion-input  [(ngModel)]="apellido" type="text" placeholder="Ingresa tu Apellido"></ion-input>
+
+        <ion-label position="floating">RUN</ion-label>
+        <br>
+        <ion-input  [(ngModel)]="run" type="text" placeholder="RUN sin guion Ej:9876543k"></ion-input>
+
+        <ion-label position="floating">Correo electronico</ion-label>
+        <br>
+        <ion-input  [(ngModel)]="mail" type="text" placeholder="Ingresa correo electronico"></ion-input>
+  
+        <ion-label position="floating">Contraseña</ion-label>
+        <br>
+        <ion-input  [(ngModel)]="pass" type="password" placeholder="Contraseña"></ion-input> <ion-label position="floating">Repetir Contraseña</ion-label>
+        <br>
+        <ion-input  [(ngModel)]="repass" type="password" placeholder="Repetir Contraseña"></ion-input> <ion-item>
+          <ion-label position="floating">Tipo de Usuario</ion-label>
+          <ion-select [(ngModel)]="tipoUsuario" placeholder="Selecciona uno">
+            <ion-select-option value="paciente">Paciente</ion-select-option>
+            <ion-select-option value="cuidador">Cuidador</ion-select-option>
+<!--           <ion-select-option value="administrador">Administrador</ion-select-option>-->
+          </ion-select>
+        </ion-item>
+
+    </ion-item>
+      
+    <div>
+        <ion-button id="btnGuardarRegistro"
+          size="large"
+          (click)="pruebaClickGuardarRegistro()" 
+          color="secondary" 
+          expand="block"
+        >Registrarse</ion-button>
+    </div>
+    </ion-content>

@@ -31,7 +31,7 @@
         Pend
       </ion-button>
       <ion-button
-        slot="end"color="success"
+        slot="end" color="success"
         [disabled]="p.estado_dosis_1 === 'realizada'"
         (click)="actualizarEstadoDosis(p, 0, 'realizada')">
         OK
@@ -73,9 +73,10 @@
       </ion-button>
     </ion-item>
 
-    <ion-item>
+    <!-- Imagen asociada a la prescripción -->
+    <ion-item *ngIf="p.imagenBase64">
       Imagen:
-      <img [src]="p.imagen" *ngIf="p.imagen" style="max-width: 100px;" alt="Imagen del medicamento">
+      <img [src]="p.imagenBase64" style="max-width: 100px;" alt="Imagen del medicamento" />
     </ion-item>
 
     <hr style="border: 0; height: 3px; background: #5d0803; margin: 10px 0;">
@@ -87,4 +88,5 @@
     Cerrar Sesión
   </ion-button>
 </ion-footer>
+
 

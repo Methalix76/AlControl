@@ -68,7 +68,8 @@ export class VermedPage implements OnInit {
           proxima_dosis_3: horas[2] || '',
           estado_dosis_1: estados[0] || 'pendiente',
           estado_dosis_2: estados[1] || 'pendiente',
-          estado_dosis_3: estados[2] || 'pendiente'
+          estado_dosis_3: estados[2] || 'pendiente',
+          imagenBase64: p.imagenBase64 || null
         };
       });
     } catch (error) {

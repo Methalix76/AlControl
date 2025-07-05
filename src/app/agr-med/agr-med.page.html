@@ -98,7 +98,6 @@
   <div class="select-container" *ngIf="presentacionSeleccionada">
     <ion-item>
       <ion-label>Cada</ion-label>
-      <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
       <ion-input
         type="number"
         inputmode="numeric"
@@ -108,7 +107,6 @@
         style="text-align: center;">
       </ion-input>
       <ion-label>Horas por</ion-label>
-      <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
       <ion-input
         type="number"
         inputmode="numeric"
@@ -124,7 +122,6 @@
   <div class="select-container" *ngIf="presentacionSeleccionada">
     <ion-item>
       <ion-label>Hora inicio</ion-label>
-      <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
       <ion-input
         type="number"
         inputmode="numeric"
@@ -134,7 +131,6 @@
         style="text-align: center;">
       </ion-input>
       <ion-label>:</ion-label>
-      <ion-label position="stacked" class="label-grande" style="font-size: 1.4rem;"></ion-label>
       <ion-input
         type="number"
         inputmode="numeric"
@@ -142,9 +138,14 @@
         placeholder="--"
         style="text-align: center;">
       </ion-input>
-      <ion-label>.</ion-label>
     </ion-item>
   </div>
+
+  <!-- Subir Imagen -->
+  <ion-item>
+    <ion-label position="stacked">Imagen del Medicamento</ion-label>
+    <input type="file" accept="image/*" (change)="seleccionarImagen($event)" />
+  </ion-item>
 
   <!-- Botón Guardar -->
   <div class="save-button-container">
@@ -161,3 +162,4 @@
     Cerrar Sesión
   </ion-button>
 </ion-footer>
+

@@ -212,4 +212,28 @@ export class AgrMedPage implements OnInit {
     }
   }
 
+async seleccionarImagen(event: any) {
+  const archivo = event.target.files[0];
+  if (!archivo) return;
+
+  const lector = new FileReader();
+  lector.onload = async () => {
+    const base64 = lector.result as string;
+    const user = await this.auth.currentUser;
+    if (!user) return;
+
+    const imagenRef = collection(this.firestore, 'imagenes');
+    await addDoc(imagenRef, {
+      uid: user.uid,
+      imagenBase64: base64,
+      timestamp: new Date()
+    });
+
+    this.presentToast('Imagen guardada correctamente');
+  };
+  lector.readAsDataURL(archivo);
+}
+
+
+
 }
